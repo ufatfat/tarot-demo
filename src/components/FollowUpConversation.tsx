@@ -6,6 +6,7 @@ import {
   type FollowUpInput,
 } from "../../shared/tarot";
 import { followUpResponseSchema } from "../../shared/validation";
+import { audio } from "../audio";
 
 export function FollowUpConversation({
   record,
@@ -40,6 +41,7 @@ export function FollowUpConversation({
     e.preventDefault();
     const question = draft.trim();
     if (!question || loading || atLimit || requestRef.current) return;
+    void audio.play("send");
     const controller = new AbortController();
     requestRef.current = controller;
     setPendingQuestion(question);
@@ -81,11 +83,14 @@ export function FollowUpConversation({
         ],
       });
       setDraft("");
+      void audio.play("answer");
     } catch (reason) {
-      if (!controller.signal.aborted)
+      if (!controller.signal.aborted) {
+        void audio.play("error");
         setError(
           reason instanceof Error ? reason.message : "暂时无法连接，请稍后重试",
         );
+      }
     } finally {
       if (requestRef.current === controller) {
         requestRef.current = null;
@@ -95,6 +100,7 @@ export function FollowUpConversation({
     }
   }
   function cancel() {
+    void audio.play("cancel");
     requestRef.current?.abort();
   }
   return (
@@ -186,6 +192,7 @@ export function FollowUpConversation({
                   type="button"
                   className="text-button cancel-follow-up"
                   onClick={cancel}
+                  data-sound="none"
                 >
                   <Square size={11} />
                   停止回答
@@ -193,6 +200,7 @@ export function FollowUpConversation({
               ) : (
                 <button
                   type="submit"
+                  data-sound="none"
                   className="primary-button follow-up-send"
                   disabled={!draft.trim()}
                 >
@@ -211,6 +219,7 @@ export function FollowUpConversation({
                   className="text-button"
                   type="button"
                   onClick={onConfigureAI}
+                  data-sound="open"
                 >
                   打开 AI 设置 <ArrowUpRight size={13} />
                 </button>

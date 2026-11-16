@@ -8,6 +8,7 @@ import {
   LoaderCircle,
 } from "lucide-react";
 import { Modal } from "./Modal";
+import { audio } from "../audio";
 export interface Config {
   configured: boolean;
   baseUrl: string;
@@ -32,6 +33,7 @@ export function Settings({
   const [saved, setSaved] = useState(false);
   async function save(e: React.FormEvent) {
     e.preventDefault();
+    void audio.play("send");
     setBusy(true);
     setError("");
     try {
@@ -45,7 +47,9 @@ export function Settings({
       onSave(data);
       setApiKey("");
       setSaved(true);
+      void audio.play("success");
     } catch (error) {
+      void audio.play("error");
       setError(error instanceof Error ? error.message : "暂时无法保存设置");
     } finally {
       setBusy(false);
@@ -134,7 +138,7 @@ export function Settings({
           <div className="saved-notice" role="status">
             <Check size={17} />
             配置已保存，解牌时会调用你选择的模型。
-            <button type="button" onClick={onClose}>
+            <button type="button" data-sound="close" onClick={onClose}>
               继续抽牌 <ArrowUpRight size={15} />
             </button>
           </div>
@@ -142,6 +146,7 @@ export function Settings({
           <button
             className="primary-button full"
             type="submit"
+            data-sound="none"
             disabled={busy || !config.editable}
           >
             {busy ? <LoaderCircle className="spin" size={16} /> : null}

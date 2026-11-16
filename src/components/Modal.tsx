@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { X } from "lucide-react";
+import { audio } from "../audio";
 let openModals = 0;
 let originalOverflow = "";
 export function Modal({
@@ -14,6 +15,10 @@ export function Modal({
   wide?: boolean;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  function close() {
+    void audio.play("close");
+    onClose();
+  }
   useEffect(() => {
     const dialog = ref.current!;
     dialog.showModal();
@@ -32,16 +37,16 @@ export function Modal({
       className={`modal ${wide ? "modal-wide" : ""}`}
       onCancel={(e) => {
         e.preventDefault();
-        onClose();
+        close();
       }}
       onClick={(e) => {
-        if (e.target === ref.current) onClose();
+        if (e.target === ref.current) close();
       }}
       aria-label={title}
     >
       <div className="modal-top">
         <span>{title}</span>
-        <button className="icon-button" onClick={onClose} aria-label="关闭">
+        <button className="icon-button" data-sound="none" onClick={close} aria-label="关闭">
           <X size={19} />
         </button>
       </div>

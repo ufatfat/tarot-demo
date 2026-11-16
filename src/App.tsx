@@ -39,6 +39,8 @@ import { FollowUpConversation } from "./components/FollowUpConversation";
 import { Settings, type Config } from "./components/Settings";
 import { loadHistory, loadSession, persist } from "./storage";
 import { resultSchema } from "../shared/validation";
+import { AudioControls } from "./components/AudioControls";
+import { audio, installAudioInteractions } from "./audio";
 type Page = "ritual" | "library" | "journal";
 type Phase = "intention" | "draw" | "reveal" | "result";
 const cardById = (id: string) => DECK.find((card) => card.id === id)!;
@@ -102,6 +104,7 @@ function Ornament() {
   );
 }
 function App() {
+  useEffect(installAudioInteractions, []);
   const [restored] = useState(loadSession);
   const [page, setPage] = useState<Page>("ritual");
   const [phase, setPhase] = useState<Phase>(
@@ -256,12 +259,14 @@ function App() {
   async function requestReading() {
     if (loading) return;
     if (!config.configured) {
+      void audio.play("error");
       setSettings(true);
       setError("你的牌已留下。完成 AI 设置后，可以继续这次解读。");
       return;
     }
     setLoading(true);
     setError("");
+    void audio.play("send");
     const input: ReadingInput = {
       question: question.trim() || activeSpread.question,
       focus,
@@ -295,6 +300,7 @@ function App() {
       if (!saved) setToast("浏览器存储空间不足，本次解读未能保存");
       setReading(record);
       setPhase("result");
+      void audio.play("ready");
       setTimeout(
         () =>
           document
@@ -304,6 +310,7 @@ function App() {
       );
     } catch (error) {
       if (error instanceof Error && error.name === "AbortError") return;
+      void audio.play("error");
       setError(
         error instanceof Error ? error.message : "解读暂时没有完成，请再试一次",
       );
@@ -327,6 +334,7 @@ function App() {
   function removeRecord(id: string) {
     const next = history.filter((r) => r.id !== id);
     if (!persist("moonlit-history", next)) {
+      void audio.play("error");
       setToast("浏览器暂时无法更新记录，请稍后再试");
       return;
     }
@@ -334,6 +342,7 @@ function App() {
     setDeleteTarget(null);
     setJournalDetail(null);
     setToast("这段记录已删除");
+    void audio.play("erase");
   }
   const filteredCards = DECK.filter(
     (card) =>
@@ -377,13 +386,16 @@ function App() {
             </button>
           ))}
         </nav>
-        <button className="settings-button" onClick={() => setSettings(true)}>
-          <span
-            className={`status-dot ${config.configured ? "connected" : ""}`}
-          />
-          <span>AI 设置</span>
-          <Settings2 size={14} />
-        </button>
+        <div className="header-actions">
+          <AudioControls />
+          <button className="settings-button" data-sound="open" onClick={() => setSettings(true)}>
+            <span
+              className={`status-dot ${config.configured ? "connected" : ""}`}
+            />
+            <span>AI 设置</span>
+            <Settings2 size={14} />
+          </button>
+        </div>
       </header>
       {page === "ritual" && (
         <main>
@@ -599,7 +611,7 @@ function App() {
                   <p>
                     <Moon size={14} /> 78 张完整塔罗 · 正逆位解读 · 属于你的片刻
                   </p>
-                  <button className="primary-button" onClick={start}>
+                  <button className="primary-button" data-sound="shuffle" onClick={start}>
                     <Shuffle size={17} /> 洗牌，开始我的旅程{" "}
                     <ArrowRight size={17} />
                   </button>
@@ -613,6 +625,7 @@ function App() {
                   <button
                     className="text-button"
                     onClick={() => setResetConfirm(true)}
+                    data-sound="open"
                     disabled={loading}
                   >
                     <ArrowLeft size={14} />
@@ -625,6 +638,7 @@ function App() {
                   <button
                     className="icon-button"
                     onClick={() => setHelp(true)}
+                    data-sound="open"
                     aria-label="查看抽牌说明"
                   >
                     <CircleHelp size={16} />
@@ -650,6 +664,7 @@ function App() {
                         {drawn ? (
                           <button
                             className={`flip-card ${isRevealed ? "is-flipped" : ""} ${phase === "draw" ? "small" : ""}`}
+                            data-sound={phase === "draw" ? "deselect" : "flip"}
                             onClick={() => {
                               if (phase === "reveal" && !isRevealed)
                                 setRevealed([...revealed, i]);
@@ -732,6 +747,7 @@ function App() {
                       <button
                         className="text-button"
                         onClick={shuffle}
+                        data-sound="shuffle"
                         disabled={shuffling}
                       >
                         <Shuffle size={14} />
@@ -760,6 +776,7 @@ function App() {
                                 } as React.CSSProperties
                               }
                               onClick={() => selectCard(drawn)}
+                              data-sound={index >= 0 ? "deselect" : "select"}
                               disabled={
                                 shuffling ||
                                 (selected.length >= count && index < 0)
@@ -802,6 +819,7 @@ function App() {
                       <button
                         className="primary-button"
                         disabled={selected.length !== count || shuffling}
+                        data-sound="deal"
                         onClick={() => {
                           setPhase("reveal");
                           setRevealed([]);
@@ -818,6 +836,7 @@ function App() {
                       <button
                         className="primary-button"
                         onClick={() => setRevealed(selected.map((_, i) => i))}
+                        data-sound={count === 1 ? "flip" : "reveal-all"}
                       >
                         <Sparkles size={16} />
                         翻开{count === 1 ? "这张牌" : "全部牌面"}
@@ -831,6 +850,7 @@ function App() {
                         <button
                           className="primary-button reading-button"
                           onClick={requestReading}
+                          data-sound="none"
                           disabled={loading}
                         >
                           {loading ? (
@@ -850,6 +870,7 @@ function App() {
                                 : "仍在等待 AI 服务回应，你的牌面会保留"}{" "}
                             <span>{loadingSeconds}s</span>
                             <button
+                              data-sound="cancel"
                               onClick={() => {
                                 controller.current?.abort();
                                 setLoading(false);
@@ -877,6 +898,7 @@ function App() {
                           <button
                             className="text-button"
                             onClick={() => setSettings(true)}
+                            data-sound="open"
                           >
                             打开 AI 设置 <ArrowUpRight size={14} />
                           </button>
@@ -963,6 +985,7 @@ function App() {
                   className="library-card"
                   key={card.id}
                   aria-label={`查看${card.name}`}
+                  data-sound="open"
                   onClick={() => setDetail(card)}
                 >
                   <CardArt card={card} />
@@ -1015,6 +1038,7 @@ function App() {
                     className="journal-card"
                     key={record.id}
                     onClick={() => setJournalDetail(record)}
+                    data-sound="open"
                   >
                     <div className="journal-card-top">
                       <span>{formatDate(record.createdAt)}</span>
@@ -1072,7 +1096,7 @@ function App() {
           <Brand />
         </button>
         <p>为自我探索而生 · 仅供娱乐与思考</p>
-        <button className="text-button" onClick={() => setHelp(true)}>
+        <button className="text-button" data-sound="open" onClick={() => setHelp(true)}>
           关于月见 <ArrowUpRight size={13} />
         </button>
       </footer>
@@ -1174,6 +1198,7 @@ function App() {
             <button
               className="text-button delete-button"
               onClick={() => setDeleteTarget(journalDetail.id)}
+              data-sound="open"
             >
               <Trash2 size={14} />
               删除这段记录
@@ -1195,10 +1220,11 @@ function App() {
               <button
                 className="secondary-button"
                 onClick={() => setResetConfirm(false)}
+                data-sound="close"
               >
                 留在此刻
               </button>
-              <button className="primary-button" onClick={reset}>
+              <button className="primary-button" data-sound="reset" onClick={reset}>
                 开始新占卜 <ArrowRight size={16} />
               </button>
             </div>
@@ -1215,12 +1241,14 @@ function App() {
               <button
                 className="secondary-button"
                 onClick={() => setDeleteTarget(null)}
+                data-sound="close"
               >
                 保留记录
               </button>
               <button
                 className="primary-button"
                 onClick={() => removeRecord(deleteTarget)}
+                data-sound="none"
               >
                 确认删除
               </button>
@@ -1332,7 +1360,7 @@ function ReadingView({
           {record.model}
         </span>
         {onNew && (
-          <button className="text-button" onClick={onNew}>
+          <button className="text-button" data-sound="open" onClick={onNew}>
             新的问题，新的开始 <RotateCcw size={14} />
           </button>
         )}
