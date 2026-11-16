@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "status": "complete",
+  "expectedCount": 78,
+  "completedCount": 78,
+  "format": "png",
+  "cards": [
+    {
+      "id": "major-0",
+      "src": "/tarot/illustrated-v1/major-0.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-1",
+      "src": "/tarot/illustrated-v1/major-1.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-2",
+      "src": "/tarot/illustrated-v1/major-2.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-3",
+      "src": "/tarot/illustrated-v1/major-3.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-4",
+      "src": "/tarot/illustrated-v1/major-4.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-5",
+      "src": "/tarot/illustrated-v1/major-5.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-6",
+      "src": "/tarot/illustrated-v1/major-6.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-7",
+      "src": "/tarot/illustrated-v1/major-7.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-8",
+      "src": "/tarot/illustrated-v1/major-8.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-9",
+      "src": "/tarot/illustrated-v1/major-9.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-10",
+      "src": "/tarot/illustrated-v1/major-10.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-11",
+      "src": "/tarot/illustrated-v1/major-11.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-12",
+      "src": "/tarot/illustrated-v1/major-12.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-13",
+      "src": "/tarot/illustrated-v1/major-13.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-14",
+      "src": "/tarot/illustrated-v1/major-14.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-15",
+      "src": "/tarot/illustrated-v1/major-15.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-16",
+      "src": "/tarot/illustrated-v1/major-16.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-17",
+      "src": "/tarot/illustrated-v1/major-17.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-18",
+      "src": "/tarot/illustrated-v1/major-18.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-19",
+      "src": "/tarot/illustrated-v1/major-19.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-20",
+      "src": "/tarot/illustrated-v1/major-20.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "major-21",
+      "src": "/tarot/illustrated-v1/major-21.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-1",
+      "src": "/tarot/illustrated-v1/wands-1.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-2",
+      "src": "/tarot/illustrated-v1/wands-2.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-3",
+      "src": "/tarot/illustrated-v1/wands-3.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-4",
+      "src": "/tarot/illustrated-v1/wands-4.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-5",
+      "src": "/tarot/illustrated-v1/wands-5.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-6",
+      "src": "/tarot/illustrated-v1/wands-6.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-7",
+      "src": "/tarot/illustrated-v1/wands-7.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-8",
+      "src": "/tarot/illustrated-v1/wands-8.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-9",
+      "src": "/tarot/illustrated-v1/wands-9.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-10",
+      "src": "/tarot/illustrated-v1/wands-10.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-11",
+      "src": "/tarot/illustrated-v1/wands-11.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-12",
+      "src": "/tarot/illustrated-v1/wands-12.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-13",
+      "src": "/tarot/illustrated-v1/wands-13.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "wands-14",
+      "src": "/tarot/illustrated-v1/wands-14.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-1",
+      "src": "/tarot/illustrated-v1/cups-1.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-2",
+      "src": "/tarot/illustrated-v1/cups-2.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-3",
+      "src": "/tarot/illustrated-v1/cups-3.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-4",
+      "src": "/tarot/illustrated-v1/cups-4.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-5",
+      "src": "/tarot/illustrated-v1/cups-5.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-6",
+      "src": "/tarot/illustrated-v1/cups-6.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-7",
+      "src": "/tarot/illustrated-v1/cups-7.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-8",
+      "src": "/tarot/illustrated-v1/cups-8.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-9",
+      "src": "/tarot/illustrated-v1/cups-9.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-10",
+      "src": "/tarot/illustrated-v1/cups-10.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-11",
+      "src": "/tarot/illustrated-v1/cups-11.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-12",
+      "src": "/tarot/illustrated-v1/cups-12.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-13",
+      "src": "/tarot/illustrated-v1/cups-13.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "cups-14",
+      "src": "/tarot/illustrated-v1/cups-14.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-1",
+      "src": "/tarot/illustrated-v1/swords-1.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-2",
+      "src": "/tarot/illustrated-v1/swords-2.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-3",
+      "src": "/tarot/illustrated-v1/swords-3.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-4",
+      "src": "/tarot/illustrated-v1/swords-4.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-5",
+      "src": "/tarot/illustrated-v1/swords-5.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-6",
+      "src": "/tarot/illustrated-v1/swords-6.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-7",
+      "src": "/tarot/illustrated-v1/swords-7.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-8",
+      "src": "/tarot/illustrated-v1/swords-8.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-9",
+      "src": "/tarot/illustrated-v1/swords-9.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-10",
+      "src": "/tarot/illustrated-v1/swords-10.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-11",
+      "src": "/tarot/illustrated-v1/swords-11.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-12",
+      "src": "/tarot/illustrated-v1/swords-12.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-13",
+      "src": "/tarot/illustrated-v1/swords-13.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "swords-14",
+      "src": "/tarot/illustrated-v1/swords-14.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-1",
+      "src": "/tarot/illustrated-v1/pentacles-1.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-2",
+      "src": "/tarot/illustrated-v1/pentacles-2.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-3",
+      "src": "/tarot/illustrated-v1/pentacles-3.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-4",
+      "src": "/tarot/illustrated-v1/pentacles-4.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-5",
+      "src": "/tarot/illustrated-v1/pentacles-5.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-6",
+      "src": "/tarot/illustrated-v1/pentacles-6.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-7",
+      "src": "/tarot/illustrated-v1/pentacles-7.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-8",
+      "src": "/tarot/illustrated-v1/pentacles-8.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-9",
+      "src": "/tarot/illustrated-v1/pentacles-9.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-10",
+      "src": "/tarot/illustrated-v1/pentacles-10.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-11",
+      "src": "/tarot/illustrated-v1/pentacles-11.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-12",
+      "src": "/tarot/illustrated-v1/pentacles-12.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-13",
+      "src": "/tarot/illustrated-v1/pentacles-13.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    },
+    {
+      "id": "pentacles-14",
+      "src": "/tarot/illustrated-v1/pentacles-14.png",
+      "width": 1024,
+      "height": 1536,
+      "status": "complete"
+    }
+  ]
+}
